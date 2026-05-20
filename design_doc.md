@@ -40,6 +40,8 @@ It's a text-based rogue-like RPG with a turn based combat system.
                 - Effects depends on item
             - Flee
                 - Chance to escape combat
+            - Skill
+                - Skill card slots
         - Calculate statuses for enemies
         - Enemies do actions
             - Random
