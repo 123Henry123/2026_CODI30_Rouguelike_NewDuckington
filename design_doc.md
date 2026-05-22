@@ -96,7 +96,10 @@ You play as one of the few surviving ducks, driven by vengeance and determined t
 
 ## Progression of Events
 
+You begin the story at Whispering Waters
+
 Magic asteriod lands and the ducks race the bears (and win; cannot advance if the duck loses the race). The ducks gain superpowers from the asteroid. 
+
 Ducks storm the Bear castle and fight for vengeance 
 
 ## Concept
