@@ -58,17 +58,21 @@ display_player_equipment() {
 }
 
 display_player_items() {
-    echo "╔══════════════════════════════╗"
-    echo "║       PLAYER  ITEMS          ║"
-    echo "╠══════════════════════════════╣"
-    printf "║  %-27s ║\n" "$PLAYER_ITEMS"
-    echo "╚══════════════════════════════╝"
+    echo "╔═══════════════════════════════════════════╗"
+    echo "║              PLAYER  ITEMS                ║"
+    echo "╠═══════════════════════════════════════════╣"
+    printf "║  Items: %-33s ║\n" "$PLAYER_ITEMS"
+    echo "║  Type the command 'show_item [item name]' ║"
+    echo "║  to see the details of an item.           ║"
+    echo "╚═══════════════════════════════════════════╝"
 }
 
 display_player_skill_cards() {
-    echo "╔══════════════════════════════╗"
-    echo "║       PLAYER  SKILL CARDS    ║"
-    echo "╠══════════════════════════════╣"
-    printf "║  %-27s ║\n" "$PLAYER_SKILL_CARDS"
-    echo "╚══════════════════════════════╝"
+    echo "╔═══════════════════════════════════════════╗"
+    echo "║            PLAYER  SKILL CARDS            ║"
+    echo "╠═══════════════════════════════════════════╣"
+    printf "║  Skill Cards: %-27s ║\n" "$PLAYER_SKILL_CARDS"
+    echo "║  Type the command 'show_card [card name]' ║"
+    echo "║  to see the details of a skill card.      ║"
+    echo "╚═══════════════════════════════════════════╝"
 }
