@@ -15,9 +15,10 @@ generate_random_room() {
 initialize_rooms() {
 	for ((i=0; i<10; i++)); do
 		generate_random_room
-	fi
+	done
 
-	shuf -e "${room_list[@]}"
+
+	shuf -e "${room_list[@]}" 1> /dev/null
 }
 
 initialize_rooms
