@@ -5,12 +5,12 @@ choice=""
 
 display_title(){
 	echo -e "
-██████╗  ██████╗  ██╗   ██╗  ██████╗ ██╗   ██╗ ███████╗ ██╗      ██╗ ██╗  ██╗ ███████╗
-██╔══██╗██╔═══██╗ ██║   ██║ ██╔════╝ ██║   ██║ ██╔════╝ ██║      ██║ ██║ ██╔╝ ██╔════╝
-██████╔╝██║   ██║ ██║   ██║ ██║  ███╗██║   ██║ █████╗   ██║      ██║ █████╔╝  █████╗  
-██╔══██╗██║   ██║ ██║   ██║ ██║   ██║██║   ██║ ██╔══╝   ██║      ██║ ██╔═██╗  ██╔══╝  
-██║  ██║╚██████╔╝ ╚██████╔╝ ╚██████╔╝╚██████╔╝ ███████╗ ███████╗ ██║ ██║  ██╗ ███████╗
-╚═╝  ╚═╝ ╚═════╝   ╚═════╝   ╚═════╝  ╚═════╝  ╚══════╝ ╚══════╝ ╚═╝ ╚═╝  ╚═╝ ╚══════╝
+██████╗  ██████╗   ██████╗ ██╗   ██╗ ███████╗ ██╗      ██╗ ██╗  ██╗ ███████╗
+██╔══██╗██╔═══██╗ ██╔════╝ ██║   ██║ ██╔════╝ ██║      ██║ ██║ ██╔╝ ██╔════╝
+██████╔╝██║   ██║ ██║  ███╗██║   ██║ █████╗   ██║      ██║ █████╔╝  █████╗  
+██╔══██╗██║   ██║ ██║   ██║██║   ██║ ██╔══╝   ██║      ██║ ██╔═██╗  ██╔══╝  
+██║  ██║╚██████╔╝ ╚██████╔╝╚██████╔╝ ███████╗ ███████╗ ██║ ██║  ██╗ ███████╗
+╚═╝  ╚═╝ ╚═════╝   ╚═════╝  ╚═════╝  ╚══════╝ ╚══════╝ ╚═╝ ╚═╝  ╚═╝ ╚══════╝
 
 ███╗   ██╗███████╗██╗    ██╗██████╗ ██╗   ██╗ ██████╗██╗  ██╗██╗███╗   ██╗ ██████╗ ████████╗ ██████╗ ███╗   ██╗
 ████╗  ██║██╔════╝██║    ██║██╔══██╗██║   ██║██╔════╝██║ ██╔╝██║████╗  ██║██╔════╝ ╚══██╔══╝██╔═══██╗████╗  ██║
@@ -21,7 +21,8 @@ display_title(){
 "
 }
 
-display_inital_menu(){
+display_inital_menu()
+{
 		echo ""
 	echo "╔══════════════════════════════════════╗"
 	echo "║            [1] START GAME            ║"
@@ -36,7 +37,8 @@ display_inital_menu(){
 	echo ""
 }
 
-get_user_option(){
+get_user_option()
+{
 	get_and_check_input_is_valid
 	
 	
@@ -55,7 +57,7 @@ get_user_option(){
 	        ;;
 	    4)
 	        echo "Goodbye!"
-	        break
+	        exit 0
 	        ;;
 	    *)
 	        echo -e "Oops! Something went wrong :( \nPlease use only numbers from the menu options :D"
@@ -64,16 +66,23 @@ get_user_option(){
 	esac
 }
 
-get_and_check_input_is_valid(){
+get_and_check_input_is_valid()
+{
 	read -p "ENTER CHOICE: " choice
 	#use logic to test that the users input is valid for our use. Is only a single digit number for example...
 }
 
-while [[$use_input != "valid"]]
+while [[ $use_input != "valid" ]]
 do
 	clear
+display_title
+display_inital_menu
+get_user_option
+get_and_check_input_is_valid
 
 
 	
 
 done
+
+
