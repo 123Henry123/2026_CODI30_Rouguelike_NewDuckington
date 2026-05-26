@@ -18,8 +18,12 @@ initialize_rooms() {
 	done
 
 
-	shuf -e "${room_list[@]}" 1> /dev/null
+	shuf -e "${room_list[@]}" 1> /dev/null   #shuf sends the output nowhere because it echos for some reason
 }
 
 initialize_rooms
 echo ${room_list[@]}
+
+
+#
+
