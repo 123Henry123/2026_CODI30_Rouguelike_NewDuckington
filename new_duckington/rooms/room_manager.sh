@@ -1,20 +1,24 @@
 #!/bin/bash
 
 room_types=("small" "normal" "huge" "shop" "event")
+declare -a room_list
 
 generate_random_room() {
 	# i want to list the 3 types of rooms and 
 
 	selected_room=${room_types[$RANDOM % ${#room_types}]}
 	# i think this picks between the 3 different options
+
+	room_list+=($selected_room)
 }	
 
+initialize_rooms() {
+	for ((i=0; i<10; i++)); do
+		generate_random_room
+	fi
 
+	shuf -e "${room_list[@]}"
+}
 
-# now need to generate 10 different rooms and put it in an order,
-
-# need to use shuf -e command
-
-shuf -e small normal Huge small normal small normal Huge Huge
-
-
+initialize_rooms
+echo ${room_list[@]}
