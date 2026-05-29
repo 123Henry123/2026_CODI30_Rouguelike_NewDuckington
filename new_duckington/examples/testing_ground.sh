@@ -7,4 +7,6 @@ source "$GAME_ROOT/system/stats.sh"
 source "$GAME_ROOT/data/items/items_manager.sh"
 
 load_player_data
-display_player_items
+display_player_skill_cards
+use_item "tactical_retreat"
+display_player_skill_cards
