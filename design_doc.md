@@ -185,6 +185,19 @@ Once the dragon is defeated, you win the game and establish New Duckington. If t
 ║      for each character)     ║
 ╚══════════════════════════════╝
                │
+               ▼
+╔══════════════════════════════╗
+║    BEAR FORTRESS ARRIVAL     ║
+║  (entry code required)       ║
+╚══════════════════════════════╝
+               │
+               ▼
+╔══════════════════════════════╗
+║         PUZZLE (TBD)         ║
+║  (player solves a puzzle for ║
+║             entry code)      ║
+╚══════════════════════════════╝
+               │
 ━━━━━━━━━━━━ FLOOR LOOP ━━━━━━━━━━━━
                │
                ▼
