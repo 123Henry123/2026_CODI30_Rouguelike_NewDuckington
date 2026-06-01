@@ -3,9 +3,13 @@
 export GAME_ROOT="$(dirname "$0")/.."
 source "$GAME_ROOT/system/stats.sh"
 source "$GAME_ROOT/data/enemies/ememy_example.sh"
+source "$GAME_ROOT/system/stats.sh"
 source "$GAME_ROOT/combat/attack.sh"
 source "$GAME_ROOT/combat/flee.sh"
+source "$GAME_ROOT/combat/item.sh"
+source "$GAME_ROOT/combat/skill.sh"
 source "$GAME_ROOT/screens/lose_screen.sh"
+source "$GAME_ROOT/screens/win_screen.sh"
 
 load_player_data
 
@@ -26,38 +30,17 @@ NC='\033[0m' # No Color
 
 clear
 
-while [[ $battle_end == false ]]; do
-	clear
-# player turn loop
-	while [[ $player_turn == true ]]; do
 
-		
-	    echo -e "${CYAN}========================================${NC}"
-	    echo -e "${YELLOW}         ⚔ YOUR TURN ⚔${NC}"
-	    echo -e "${CYAN}========================================${NC}"
-	    echo
-	    # show current player stats
-	    display_player_stats
-	    echo
-	    echo
+action_selection() {
 
-	    echo -e "${WHITE}Choose your action:${NC}"
-	    echo -e "${RED}[1] Attack${NC}"
-	    echo -e "${BLUE}[2] Skill${NC}"
-	    echo -e "${YELLOW}[3] Item${NC}"
-	    echo -e "${GREEN}[4] Flee${NC} (your flee chance is $(( $base_flee_chance + $PLAYER_SPD*PLAYER_LCK/2 ))%)"
-	    echo
+	read -p "Enter choice: " action
 
-		read -p "Enter choice: " action
-		# normalize textual input to lowercase for matching
-		action_lc=$(echo "$action" | tr '[:upper:]' '[:lower:]')
-
-
-		case $action_lc in
-			1|attack)
+	case $action in
+	        1|attack|Attack)
 	            
 	            echo -e "${RED}You attack the enemy!${NC}"
 	            attack
+	            
 
 	            ;;
 	            
@@ -76,14 +59,39 @@ while [[ $battle_end == false ]]; do
 				bash "$GAME_ROOT/combat/flee.sh"
 	            ;;
 	            
-			*)
-				echo
-				echo -e "Invalid option. Try again."
-				sleep 2
-				# go back to the top of the player-turn loop without restarting the script
-				continue
-				;;
+	        *)
+	            echo
+	            echo -e "Invalid option. Try again."
+	            sleep 2
+	            
+	            action_selection
+	            ;;
 	    esac
+}
+
+
+while [[ $battle_end == false ]]; do
+	
+# player turn loop
+	while [[ $player_turn == true ]]; do
+
+		
+	    echo -e "${CYAN}========================================${NC}"
+	    echo -e "${YELLOW}         ⚔ YOUR TURN ⚔${NC}"
+	    echo -e "${CYAN}========================================${NC}"
+
+	    display_player_stats
+
+	    echo -e "Choose your action:${NC}"
+	    echo -e "${RED}[1] Attack${NC}"
+	    echo -e "${BLUE}[2] Skill${NC}"
+	    echo -e "${YELLOW}[3] Item${NC}"
+	    echo -e "${GREEN}[4] Flee${NC} (your flee chance is $(( $base_flee_chance + $PLAYER_SPD*PLAYER_LCK/2 ))%)"
+	    echo
+
+
+
+	    action_selection
 
 	    sleep 1
 
@@ -93,42 +101,39 @@ while [[ $battle_end == false ]]; do
 
 
 
-	while [[ player_turn != true ]]; do
+	while [[ $player_turn != true ]]; do
+
+		if [[ $ENEMY_HP != 0 ]]; then
+
 		
-	    echo -e "${YELLOW}========================================${NC}"
-	    echo -e "${RED}         ⚔ ENEMY TURN ⚔${NC}"
-	    echo -e "${YELLOW}========================================${NC}"
-	    echo
-	    # also show player stats during enemy turn
-	    display_player_stats
-	    echo
+			echo -e "${YELLOW}========================================${NC}"
+			echo -e "${RED}         ⚔ ENEMY TURN ⚔${NC}"
+		    echo -e "${YELLOW}========================================${NC}"
+		 	
 
- 	
+		    echo -e "${RED}$ENEMY_NAME has used ${ENEMY_ATK_NAME:-"claw"}${NC}"
+
+		    DAMAGE_TAKEN=$(($ENEMY_ATK-$PLAYER_DEF))
+
+			    
+		    echo -e "you have taken $DAMAGE_TAKEN damage"
+		    PLAYER_HP=$(($PLAYER_HP-$DAMAGE_TAKEN))
+
+			if [[ $PLAYER_HP -lt 1 ]]; then
+			  	PLAYER_HP=0
+			fi
 
 
-	    echo -e "${RED}$ENEMY_NAME has used ${ENEMY_ATK_NAME:-"claw"}${NC}"
+			read -p "press enter to continue: " hi
+		    player_turn=true
 
-	    DAMAGE_TAKEN=$(($ENEMY_ATK-$PLAYER_DEF))
-
-	    echo -e "you have taken $DAMAGE_TAKEN damage"
-	    PLAYER_HP=$(($PLAYER_HP-$DAMAGE_TAKEN))
-
-		if [[ $PLAYER_HP -lt 1 ]]; then
-	    	PLAYER_HP=0
-		fi
-
-	   	echo "You now have $PLAYER_HP HP remaining"
-	    read -p "press enter to continue: " hi
-	    player_turn=true
-
-	    if [[ $PLAYER_HP == 0 ]]; then
-	    	battle_end=true
-	    	lose_screen
-	    fi	
-	    
-
-	    break
-	    
+		    if [[ $PLAYER_HP == 0 ]]; then
+		    	battle_end=true
+		    	lose_screen
+		
+			fi
+		    break
+	    fi
 	done
 
 done
