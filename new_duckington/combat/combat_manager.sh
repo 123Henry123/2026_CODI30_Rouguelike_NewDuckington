@@ -80,7 +80,9 @@ while [[ $battle_end == false ]]; do
 	    echo -e "${YELLOW}         ⚔ YOUR TURN ⚔${NC}"
 	    echo -e "${CYAN}========================================${NC}"
 
-	    display_player_stats
+	    paste -d ' ' \
+    	<(display_player_stats) \
+    	<(display_enemy_stats "BEAR_GRUNT")
 
 	    echo -e "Choose your action:${NC}"
 	    echo -e "${RED}[1] Attack${NC}"
