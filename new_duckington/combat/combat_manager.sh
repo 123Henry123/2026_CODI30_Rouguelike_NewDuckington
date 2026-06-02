@@ -28,7 +28,8 @@ NC='\033[0m' # No Color
 
 clear
 
-current_enemy=
+# Accepts an enemy as the first arguement when running the script but also defaults if empty, ADD HANDLING FOR INVALID LATER
+declare -n current_enemy="${1:-BEAR_GRUNT}"
 
 action_selection() {
 
@@ -109,7 +110,7 @@ while [[ $battle_end == false ]]; do
 		    echo -e "${YELLOW}========================================${NC}"
 		 	
 
-		    echo -e "${RED}${BEAR_GRUNT[name]} has used ${BEAR_GRUNT[attack]:-"claw"}${NC}"
+		    echo -e "${RED}${BEAR_GRUNT[name]} has used ${BEAR_GRUNT[attack_name]:-"claw"}${NC}"
 
 		    DAMAGE_TAKEN=$((${BEAR_GRUNT[atk]} - $PLAYER_DEF))
 
