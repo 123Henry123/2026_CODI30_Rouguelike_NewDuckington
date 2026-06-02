@@ -13,8 +13,6 @@ source "$GAME_ROOT/screens/win_screen.sh"
 
 load_player_data
 
-
-
 player_turn=true
 base_flee_chance=10
 battle_end=false
@@ -30,6 +28,7 @@ NC='\033[0m' # No Color
 
 clear
 
+current_enemy=
 
 action_selection() {
 
@@ -37,11 +36,8 @@ action_selection() {
 
 	case $action in
 	        1|attack|Attack)
-	            
 	            echo -e "${RED}You attack the enemy!${NC}"
 	            attack
-	            
-
 	            ;;
 	            
 			2|skill)
