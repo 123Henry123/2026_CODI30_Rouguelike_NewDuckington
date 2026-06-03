@@ -39,6 +39,18 @@ declare -a floor_8
 declare -a floor_9
 declare -a floor_10
 
+
+initialize_rooms >> floor_1
+initialize_rooms >> floor_2
+initialize_rooms >> floor_3
+initialize_rooms >> floor_4
+initialize_rooms >> floor_5
+initialize_rooms >> floor_6
+initialize_rooms >> floor_7
+initialize_rooms >> floor_8
+initialize_rooms >> floor_9
+initialize_rooms >> floor_10
+
 # kind of raw code right now
 #=================================================================
 
