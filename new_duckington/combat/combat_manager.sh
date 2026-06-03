@@ -74,11 +74,7 @@ while [[ $battle_end == false ]]; do
 		echo -e "${YELLOW}        				   ⚔ YOUR TURN ⚔${NC}"
 		echo -e "${CYAN}===================================================================================================================${NC}"
 
-		# Claude {
-		load_player_data
-		source "$GAME_ROOT/system/stats.sh"
-		source "$GAME_ROOT/data/enemy_data.sh"
-
+		# PENGDA CLAUDE CODE START
 		# Get stats as arrays of lines
 		mapfile -t player_lines < <(display_player_stats)
 		mapfile -t enemy_lines < <(display_enemy_stats "BEAR_GRUNT")
@@ -104,7 +100,8 @@ while [[ $battle_end == false ]]; do
 		"$player_bar" "$percent" "$PLAYER_HP" "$PLAYER_HP_MAX" \
 		"" \
 		"$enemy_bar" "$enemy_percent" "${BEAR_GRUNT[hp]}" "${BEAR_GRUNT[hp_max]}"
-		# } End of Claude
+		# PENGDA CLAUDE CODE END
+		# PS: READ WHAT THE CODE ACTUALLY DOES CUZ I HAD TO FIX ERRORS FROM IT
 
 		echo
 
@@ -137,7 +134,9 @@ while [[ $battle_end == false ]]; do
 
 			echo -e "the enemy has ${current_enemy[atk]} damage and you have $PLAYER_DEF def"
 		    echo -e "you have taken $DAMAGE_TAKEN damage"
+		    echo $PLAYER_HP
 		    PLAYER_HP=$(($PLAYER_HP-$DAMAGE_TAKEN))
+		    echo $PLAYER_HP
 
 			if [[ $PLAYER_HP -lt 1 ]]; then
 			  	PLAYER_HP=0
