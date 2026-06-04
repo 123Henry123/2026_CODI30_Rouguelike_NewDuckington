@@ -15,24 +15,24 @@ BEFORE POWERS:
 - Excellent strategist.
 - Able to create tools from limited resources.
 
-BASE STATS:
-PLAYER_HP=100
-PLAYER_HP_MAX=100
-PLAYER_ATK=30
-PLAYER_DEF=8
-PLAYER_NRG=0
-PLAYER_NRG_MAX=50
-PLAYER_SPD=7
-PLAYER_LCK=2
+BASE STATS:                       STATS WITH Cryo Stun Gun: 
+PLAYER_HP=50                      PLAYER_HP=50 
+PLAYER_HP_MAX=100                 PLAYER_HP_MAX=100
+PLAYER_ATK=5                      PLAYER_ATK=50
+PLAYER_DEF=2                      PLAYER_DEF=20
+PLAYER_NRG=0                      PLAYER_NRG=0
+PLAYER_NRG_MAX=100                PLAYER_NRG_MAX=100
+PLAYER_SPD=7                      PLAYER_SPD=30
+PLAYER_LCK=2                      PLAYER_LCK=2
 
 WEAPON:
 Given to him from the Asteroid:
 Cryo Stun Gun – Freezes targets instantly. When thawed, targets lose 30 HP.
 
-BASE POWER: 50%
-MAX POWER: 100%
+Cryo Stun Gun BASE POWER: 50%
+              MAX POWER: 100%
 
-POWERS:
+CRYO STUN GUN POWERS:
 - Freeze Shot
 - Cryo Trap
 - Ice Blast
@@ -40,7 +40,7 @@ POWERS:
 - Absolute Zero (Ultimate Ability)
 
 AFTER POWERS:
-- Enhances his inventions using asteroid technology.
+- Enhances his inventions using the asteroid technology.
 - Controls powerful freezing attacks.
 - Provides support and battlefield control for allies.
 
@@ -49,3 +49,8 @@ GOALS:
 - Find the mastermind behind the conflict.
 - Avenge his family.
 - Use science to rebuild the world after the war.
+
+DRAWBACKS:
+- Cannot use Ultimate Ability till the last level when he fully master the powers.
+- Spamming the powers a lot makes the character fall unconscious making them easy prey for the bears.
+- Character is a bit absurd at times.
