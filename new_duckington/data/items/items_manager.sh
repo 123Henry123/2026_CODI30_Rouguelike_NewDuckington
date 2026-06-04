@@ -3,7 +3,8 @@
 # This file gets all the items under the data/items folder and put them into the variable ITEMS_POOL, 
 # which will be used in the game to generate random items for the player.
 
-source new_duckington/main.sh
+export GAME_ROOT="$(dirname "$0")/.."
+source "$GAME_ROOT/main.sh"
 source "$GAME_ROOT/system/stats.sh"
 
 ITEMS_POOL=()
