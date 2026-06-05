@@ -2,8 +2,9 @@
 
 run_floor() {
 
-    echo "Floor 2"
-    echo "You hear dripping water."
+    echo "Floor 3"
+    sleep 1
+    echo "You are getting closer"
 
     for room in {1..10}; do
 
