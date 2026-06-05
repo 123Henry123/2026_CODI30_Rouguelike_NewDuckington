@@ -154,5 +154,4 @@ while [[ $battle_end == false ]]; do
 		    break
 	    fi
 	done
-
 done
