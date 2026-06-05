@@ -1,4 +1,3 @@
-
 #!/bin/bash
 #put this inside the if player loses statement
 #feel free to change the spacing
@@ -24,6 +23,9 @@ echo "--------------------------------------------------------------------------
 
 
 You made it to floor $floor
+Player level: $PLAYER_LEVEL
+Player exp: $PLAYER_XP/$PLAYER_XP_NEXT
+Player gold: $PLAYER_GOLD
 
 
 Do you want to restart (yes/no)?
