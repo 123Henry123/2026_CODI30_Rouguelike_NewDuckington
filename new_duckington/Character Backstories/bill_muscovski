@@ -16,7 +16,7 @@ BEFORE POWERS:
 - Able to create tools from limited resources.
 
 BASE STATS:                       STATS WITH Cryo Stun Gun: 
-PLAYER_HP=90                      PLAYER_HP=120 
+PLAYER_HP=100                     PLAYER_HP=120 
 PLAYER_HP_MAX=150                 PLAYER_HP_MAX=150
 PLAYER_ATK=5                      PLAYER_ATK=40
 PLAYER_DEF=2                      PLAYER_DEF=20
