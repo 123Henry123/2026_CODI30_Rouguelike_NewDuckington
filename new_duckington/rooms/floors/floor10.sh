@@ -16,7 +16,7 @@ run_floor() {
 
         elif [[ $room -eq 10 ]]; then
 
-            miniboss_room
+            boss_room
 
         else
 

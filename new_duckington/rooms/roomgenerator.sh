@@ -46,6 +46,11 @@ shop() {
 miniboss(){
 	miniboss
 }
+
+
+boss_room(){
+	#final boss only happes on level 100
+}
 generate_room() {
 
     room_types=("small" "normal" "huge")
@@ -57,3 +62,6 @@ generate_room() {
         normal) normal_room ;;
         huge)   huge_room ;;
     esac
+
+
+
