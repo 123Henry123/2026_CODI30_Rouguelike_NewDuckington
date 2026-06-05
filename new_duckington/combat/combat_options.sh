@@ -59,11 +59,19 @@ item() {
     while true; do
         read -p "Enter command: " cmd arg
         case "$cmd" in
-            show_item)
+            show_item|s)
                 get_item_description "$arg"
                 ;;
-            use_item)
+            use_item|u)
                 use_item "$arg"
+                break
+                ;;
+            give_item|g)
+                give_item "$arg"
+                break
+                ;;
+            exit|e)
+                echo "Exiting item menu."
                 break
                 ;;
             *)
